@@ -1,0 +1,1597 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*base night mode*/
+:root{
+    --navBar-color: rgb(26, 25, 25, .8);
+    --background-color: rgb(95, 95, 95);
+    --background-color-transparent: rgba(22, 22, 22, 0.49);
+    --overlay-background-color: rgba(77, 77, 77, 0.41);
+    --panel-background-color-one: rgba(66, 66, 66, 0.95);
+    --panel-background-color-two: rgba(95, 95, 95, 0.85);
+    --modal-background-color: rgba(19, 19, 19, 0.6);
+    --font-color: rgb(255, 255, 255);
+    --moon-icon: rgb(0, 0, 0);
+    --font-home: rgb(21, 235, 235);
+    --background: var(--background-color);
+    --color-footer: white;
+    --background-color-2: rgb(56, 56, 56);
+    --background-color-3: rgb(32, 24, 24);
+    --skill-background: rgb(96, 95, 93, .8);
+    --submodal-background: rgba(49, 49, 49, 0.7);
+    --github-text: rgb(204, 111, 204);
+}
+
+body{
+    overflow: hidden;
+}
+
+body.light-mode{
+    --navBar-color: rgb(26, 25, 25, .8);
+    --background-color: rgb(51, 51, 51);
+    --background-color-transparent: rgba(43, 32, 32, 0.49);
+    --font-color: rgb(247, 209, 128);
+    --panel-background-color-one: rgba(39, 39, 39, 0.8);
+    --panel-background-color-two: rgba(51, 51, 51, 0.85);
+    --font-home: rgb(243, 241, 238);
+    --color-footer: black;
+    --background-color-2: rgb(231, 227, 225);
+    --background-color-3: rgb(245, 232, 209);
+    --skill-background: rgb(58, 135, 178, .8);
+    --submodal-background: rgba(27, 26, 26, 0.4);
+    --github-text: rgb(165, 38, 165);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Scrollbar*/
+.info-extra::-webkit-scrollbar {
+  width: 11px;
+}
+
+.info-extra::-webkit-scrollbar-thumb{
+  border-radius: 80px;
+  background-color: #5c5c5c; 
+}
+
+
+.info-extra::-webkit-scrollbar-track {
+  background-color: #444444;
+}
+
+.info-extra::-webkit-scrollbar-button:single-button:vertical:decrement {
+  background: url('data:image/svg+xml;utf8,<svg fill="white" height="8" viewBox="0 0 24 24" width="8" xmlns="http://www.w3.org/2000/svg"><path d="M7 14l5-5 5 5z"/></svg>') no-repeat center;
+  background-size: 6px;
+}
+
+.info-extra::-webkit-scrollbar-button:single-button:vertical:increment {
+  background: url('data:image/svg+xml;utf8,<svg fill="white" height="8" viewBox="0 0 24 24" width="8" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat center;
+  background-size: 6px;
+}
+
+
+span{
+    display: inline-block; /*split-text*/
+}
+
+
+
+
+
+
+
+
+
+/*nav*/
+.navBar{
+    width: 100%;
+    height: 3.4vh;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.navBar .bi-moon-fill{
+    color: var(--moon-icon);
+    font-size: 1.5em;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    padding: 4px;
+    position: absolute;
+}
+
+.navBar .bi-sun-fill{
+    color: var(--font-color);
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 10;
+    position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*main container*/
+
+.main-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: url('../img/b3.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+
+
+/*Overlay*/
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-background-color);
+    top: 0;
+    left: 0;
+    z-index: 3;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    opacity: .94;
+}
+
+
+
+
+/*Overlay light mode*/
+.overlay-lightMode{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: linear-gradient(270deg, rgb(255, 255, 236), rgb(243, 211, 175), rgb(255, 251, 236));
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+
+
+/*panel container*/
+.main-panels{
+    width: 70%;
+    height: 95vh;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    max-width: 1600px;
+    min-width: 1400px;
+    max-height: 1195px;
+    min-height: 770px;
+    background-image: linear-gradient(180deg, var(--background-color), var(--panel-background-color-two), var(--panel-background-color-one), var(--panel-background-color-one), var(--panel-background-color-two), var(--background-color));
+    border-radius: 20px;
+    z-index: 1;
+}
+
+
+
+
+
+/*Home title*/
+.main-panels>h2{
+    position: absolute;
+    color: var(--font-home);
+    font-size: 1.2em;
+    top: 0%;
+    left: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: default;
+    padding: 10px;
+    z-index: 1;
+}
+
+
+
+
+
+
+/*Lateral panel - welcome message*/
+.small-lateral-message{
+    padding: 10px;
+    position: absolute;
+    top: 2%;
+    left: 0%;
+    color: var(--font-color);
+    cursor: default;
+}
+
+.small-lateral-message>h3{
+    font-size: 1.4em;
+    font-family: "Barlow Condensed";
+    letter-spacing: .7px;
+}
+
+.small-lateral-message>p{
+    font-size: .94em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+
+.small-lateral-message .space {/*Separation between words*/
+  width: 0.2em; 
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Upper articles*/
+.main-panels .aboutMe,
+.main-panels .contact{
+    width: 23%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    overflow: hidden;
+}
+
+
+
+/*Lower articles*/
+.main-panels .myWorks,
+.main-panels .workingOn{
+    width: 23%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;  
+}
+
+
+
+
+
+/*Article children elements*/
+.article-aboutMe, .article-contact{
+    height: 72%;
+    width: 100%;
+    margin-bottom: 70px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.article-myWorks, .article-workingOn{
+    height: 72%;
+    width: 100%;
+    margin-top: 70px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+
+/*Text container*/
+.main-panels .article-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3%;
+    background-image: linear-gradient(270deg, transparent, var(--background-color-transparent), var(--background-color-transparent), transparent);
+    cursor: default;
+}
+
+
+
+
+
+
+/*Text main panel*/
+.main-panels h3{
+    font-size: 1.5em;
+    color: var(--font-color);
+    font-family: "Barlow Condensed";
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+/*hover*/
+.article-aboutMe:hover img,
+.article-contact:hover img,
+.article-myWorks:hover img,
+.article-workingOn:hover img{
+    transform: scale(1);
+}
+
+
+
+
+
+
+
+
+/*sizing imgs in general*/
+article img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+    transition: .2s ease-in-out;
+}
+
+
+
+
+
+
+
+/*footer*/
+footer{
+    color: var(--color-footer);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: .9em;
+    padding-bottom: 5px;
+    z-index: 1;
+    font-weight: 600;
+    cursor: default;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Information-modal*/
+.modal-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-background-color);
+    /*backdrop-filter: blur(7px);*/ 
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.modal-info{
+    width: 45%;
+    height: 55%;
+    background-image: linear-gradient(270deg, var(--background-color-2), var(--background-color-3), var(--background-color-2));
+    border-radius: 15px;
+    pointer-events: none; 
+    z-index: 10;
+    max-width: 680px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    opacity: 0; 
+    pointer-events: none;
+    position: absolute;
+    min-height: 340px;
+}
+
+
+
+
+
+
+/*about me section - upper container*/
+.my-info{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    background-color: rgba(78, 78, 78, 0.7);
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: url(../img/b1.png);
+    background-position: 50% 43%;
+    background-size: cover;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+.my-info::before{
+    content: '';
+    inset: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.44);
+    backdrop-filter: blur(1.8px);
+}
+
+/*img*/
+.my-info .info-img{
+    width: 28%;
+    height: 90%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.my-info .info-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: .2s ease-in-out;
+}
+
+.info-img:hover img{
+    transform: scale(1.1);
+}
+
+/*lateral text*/
+.my-info .info-text{
+    width: auto;
+    height: 90%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+
+.my-info .info-text h1{
+    color: white;
+    font-family: "Barlow Condensed";
+    font-weight: 600;
+    font-size: 3em;
+    cursor: default;
+    letter-spacing: 1px;
+}
+
+.my-info .info-text-p{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.1em;
+    cursor: default;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+/*extra info*/
+.info-extra{
+    height: 65%;
+    width: 100%;
+    background-color: rgb(39, 39, 39, .41);
+    overflow: auto;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    border-radius: 15px;
+}
+
+
+
+
+/*Extra info - container type #2*/
+.info-extra .extra-info-me{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px 5px;
+    border-radius: 10px;
+}
+
+.info-extra .info-one{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1em;
+    color: var(--color-footer);
+    background-color: rgb(12, 12, 12, .45);
+    padding: 5px 10px;
+}
+
+
+.info-extra .info-one p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.info-extra .info-one h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.info-extra .info-two{
+    display: flex;
+    flex-direction: column;
+    border-left: solid 2px var(--color-footer);
+    padding: 5px 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(247, 247, 247);
+    font-size: 1.1em;
+    background-color: rgb(34, 34, 34, .3);
+    gap: 4px;
+    cursor: default;
+}
+
+
+
+/*Extra info - Container type #1*/
+
+.extra-info-education,
+.extra-info-languages{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*info +*/
+
+.modal-info h1{
+    color: white;
+    font-size: 2em;
+    font-family: "Barlow Condensed";
+    cursor: default;
+}
+
+.contact-info{
+    width: 100%;
+    height: 95%;
+    background-color: rgb(39, 39, 39, .45);  
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+
+.contact-info .info-one{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    color: var(--color-footer);
+    padding: 5px 10px;
+}
+
+.contact-info .message{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info .message .bi-envelope-fill{
+    font-size: 5em;
+    color: var(--font-color);
+}
+
+.contact-info .info-two{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+    color: white;
+}
+
+.contact-info .info-two p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+}
+
+.contact-info .info-two span{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Progress*/
+.progress-img{
+    width: 100%;
+    height: 25%;
+}
+
+.progress-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*small-message*/
+
+.info-extra .message{
+    width: 100%;
+    height: auto;
+    padding: 15px 15px;
+    background-color: rgba(44, 104, 233, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-extra .message p{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.1em;
+}
+
+
+.info-extra .message p:nth-child(2){
+    color: white;
+    font-size: .95em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*example-title*/
+.example-title{
+    color: white;
+    font-family: "Barlow Condensed";
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.example-title hr{
+    opacity: .6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*skils*/
+
+.skills{
+    display: flex;
+    min-height: 132px;
+    width: 100%;
+    height: 20%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(29, 29, 29, 0.7);
+    padding: 10px 0px;
+}
+
+.skills .skills-element{
+    width: 23%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(230, 231, 236, 0.85);
+    border-radius: 10px;
+    padding: 7px 8px;
+    cursor: default;
+    transition: .3s ease-in-out;
+}
+
+
+.skills .skills-element:hover{
+    transform: scale(1.07);
+}
+
+
+.skills .skills-element h3{
+    font-family: "Bebas Neue";
+    color: rgb(55, 111, 168);
+    letter-spacing: .9px;
+    font-size: 1.3em;
+}
+
+
+
+
+
+
+/*My-projects*/
+
+.my-projects{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    background: rgba(29, 29, 29, 0.7);
+    border-radius: 10px;
+    padding: 10px 0px;
+    gap: 15px; /*Check if issues happen*/
+}
+
+.my-projects .example{
+    width: 80%;
+    height: 70%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.example .example-img{
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+}
+
+.example-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*modal toggle properties*/
+
+.modal-info.work{
+    width: 48%;
+    height: 70%;
+    max-width: 900px;
+    min-width: 825px;
+    padding: 0px 5px;
+}
+
+
+.modal-info.contact{
+    width: 30%;
+    height: 26%;
+    max-width: 600px;
+    min-width: 516px;
+    padding: 5px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*modal to display examples*/
+
+
+.modal-display-example{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--submodal-background);
+    z-index: 20;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    cursor: zoom-out;
+    backdrop-filter: blur(4px);
+}
+
+
+
+.modal-display-example .display-example-img{
+    width: 80%;
+    height: 70%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.modal-display-example .display-example-description{
+    border-radius: 10px;
+    padding: 10px 10px;
+    width: auto;
+    height: auto;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: .99em;
+    background-color: rgb(29, 29, 29, .4);
+}
+
+.display-example-description p{
+    text-align: center;
+    font-size: .85em;
+}
+
+.display-example-description p:first-child{
+    font-size: 1.22em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.display-example-description a{
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*close modal msg*/
+.close-modal-msg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.close-modal-msg .show{
+    opacity: 1;
+}
+
+.close-modal-msg p{
+    color: rgb(240, 238, 238, .9);
+    font-size: .86em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+/*modal progress*/
+.modal-info.progress{
+    height: 50%;
+    max-height: 550px;
+}
+
+
+
+
+
+
+
+
+.lk a{ 
+    color: var(--github-text);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*@media*/
+@media (max-width: 1475px){
+
+    .navBar{
+        padding: 7px;
+    }
+
+    .navBar .bi-sun-fill, .navBar .bi-moon-fill{
+        font-size: 1.6em;
+    }
+
+    .main-container{
+        gap: 0;
+        justify-content: center;
+    }
+
+    .main-panels{
+        min-width: unset;
+        min-height: unset;
+        flex-wrap: wrap;
+        width: 80%;
+        padding: 30px 0px;
+      background-image: linear-gradient(350deg, var(--background-color), var(--panel-background-color-two), var(--panel-background-color-one), var(--panel-background-color-one), var(--panel-background-color-two), var(--background-color));      
+    }
+
+    .main-panels .article-text{
+        height: 7%;
+        font-size: 1.2em;
+    }
+
+    /*Upper articles*/
+    .main-panels .aboutMe,
+    .main-panels .contact{
+        width: 45%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /*Lower articles*/
+    .main-panels .myWorks,
+    .main-panels .workingOn{
+        width: 45%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;  
+        position: relative;
+    }
+
+
+     /*Article children elements*/
+    .article-aboutMe, .article-contact{
+        margin-bottom: 0px;
+        height: 70%;
+    }
+
+    .article-myWorks, .article-workingOn{
+        margin-top: 0px;
+        height: 70%;
+    }
+
+    footer{
+        position: absolute;
+        bottom: 0;
+        margin-left: 0%;
+    }
+
+    .modal-info{
+        max-height: 700px;
+        max-width: 600px;
+        width: 75%;
+        height: 65%;
+    }
+
+
+    .modal-info.work{
+        min-width: unset;
+        width: 75%;
+    }
+
+
+    .skills{
+        height: auto;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .skills .skills-element{
+        width: 45%;
+    }
+
+
+    .modal-display-example .display-example-img{
+        width: 95%;
+        height: 60%;
+        background-size: contain;
+    }
+
+
+    .display-example-description p{
+        text-align: center;
+        font-size: .77em;
+    }
+
+    .display-example-description p:first-child{
+        font-size: 1.09em;
+    }
+
+
+    .modal-info.contact{
+        max-height: 295px;
+        min-width: 510px;
+        height: 32%;      
+    }    
+
+    .modal-info h1{
+        font-size: 1.7em;
+    }
+
+
+    .contact-info .message .bi-envelope-fill{
+        font-size: 5em;
+    }
+
+    .info-extra .info-two{
+        font-size: 1.04em;
+    }
+
+    .my-info .info-img{
+        max-width: 180px;
+        width: 40%;
+        height: 80%;
+    }
+
+    .my-info .info-text h1{
+        font-size: 2.6em;
+    }
+
+    .my-info .info-text-p{
+        font-size: 1em;
+    }
+
+
+    .modal-info.progress{
+        max-width: 480px;
+        max-height: 600px;
+        height: 87%;
+    }
+
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px){
+
+
+    .navBar .bi-sun-fill, .navBar .bi-moon-fill{
+        font-size: 1.4em;
+    }
+
+    .main-container{
+        gap: 0;
+        justify-content: space-evenly;
+    }
+
+    .navBar{
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        left: 0;
+        padding: 20px 5px;
+    }
+
+    .main-panels{
+        flex-direction: column;
+        align-items: center;
+        max-width: unset;
+        min-width: unset;
+        max-height: unset;
+        min-height: unset;
+        height: 91%;
+        width: 90%;
+    }
+
+
+    /*Upper articles*/
+    .main-panels .aboutMe,
+    .main-panels .contact{
+        width: 85%;
+        height: 23%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        position: relative;
+    }
+
+
+    /*text for each img*/
+    .main-panels .article-text{
+        height: auto;
+        position: absolute;
+        z-index: 1;
+        justify-content: start;
+        padding-left: 10px;
+        background-image: linear-gradient(270deg, transparent, transparent, var(--background-color-transparent), var(--background-color-transparent));
+    }
+
+
+
+
+    /*Lower articles*/
+    .main-panels .myWorks,
+    .main-panels .workingOn{
+        width: 85%;
+        height: 23%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;  
+        position: relative;
+    }
+
+
+    .main-panels h3{
+        font-size: 1.3em;
+        font-weight: 700;
+    }
+
+
+
+
+    /*Article children elements*/
+    .article-aboutMe, .article-contact{
+        margin-bottom: 0px;
+        height: 100%;
+    }
+
+    .article-myWorks, .article-workingOn{
+        margin-top: 0px;
+        height: 100%;
+    }
+
+    .main-panels>h2{
+        display: none;
+    }
+
+    footer{
+        display: none;
+    }
+
+    .small-lateral-message{
+        display: none;
+    }
+
+    .modal-info.work{
+        width: 85%;
+        height: 85%;
+    }
+
+    .my-info .info-text h1{
+        font-size: 2.3em;
+    }
+
+    .skills .skills-element{
+        width: 60%;
+        max-width: 310px;
+        padding: 6px 7px;
+    }
+
+    .skills .skills-element h3{
+        font-size: 1.1em;
+    }
+
+    .example-title{
+        font-size: .9em;
+    }
+
+    .info-extra .message p{
+        font-size: .99em;
+    }
+
+    .modal-display-example .display-example-img{
+        height: 45%;
+        width: 85%;
+    }
+
+    .modal-display-example{
+        font-size: .85em;
+        font-weight: 500;
+    }
+
+    
+    .modal-info.contact{
+        max-height: 300px;
+        min-height: 245px;
+        min-width: unset;
+        max-width: 515px;
+        width: 80%;        
+        height: 31%;
+        padding: 5px 5px;
+    }    
+
+    .contact-info{
+        height: 100%;
+        padding: 5px 5px;
+    }
+
+    .contact-info .info-one{
+        padding: 0px;
+    }
+
+    .modal-info{
+        max-height: 900px;
+        width: 85%;
+        height: 84%;
+    }
+
+    .modal-info h1{
+        font-size: 1.5em;
+    }
+
+
+    .my-info .info-img{
+        max-width: 180px;
+        width: 30%;
+        height: 70%;
+    }
+
+    .my-info .info-text h1{
+        font-size: 2.2em;
+    }
+
+    .my-info .info-text-p{
+        font-size: .9em;
+    }
+
+    .info-extra{
+        padding: 7px 7px;
+    }
+
+    .info-extra .info-two{
+        font-size: .89em;
+    }
+
+    .contact-info .message .bi-envelope-fill{
+        font-size: 6em;
+    }
+
+    .contact-info .info-two p{
+        font-size: .9em;
+    }
+
+    .close-modal-msg p{
+        font-size: .75em;
+    }
+
+
+    .modal-info.progress{
+        max-width: 460px;
+        max-height: 500px;
+        height: 87%;
+    }
+
+    .modal-info.progress .info-two{
+        font-size: .95em;
+    }
+
+}
+
+
+
+
+
+@media (max-width: 480px){
+
+    .main-panels{
+        width: 96%;
+    }
+
+    .navBar{
+        padding: 15px 5px;
+    }
+
+    .navBar .bi-sun-fill, .navBar .bi-moon-fill{
+        font-size: 1em;
+    }
+
+    .modal-info.work{
+        width: 90%;
+        height: 90%;
+    }
+
+    .my-info .info-text h1{
+        font-size: 1.6em;
+    }
+
+    .info-extra .message p{
+        font-size: .95em;
+    }
+
+
+    .skills .skills-element{
+        padding: 4px 5px;
+    }
+
+    .skills .skills-element h3{
+        font-size: 1.1em;
+    }
+
+    .example-title{
+        font-size: .9em;
+    }
+
+    .modal-display-example{
+        font-size: .77em;
+        font-weight: 500;
+    }
+
+    .display-example-description p:first-child{
+        font-size: 1em;
+    }
+
+
+
+    .modal-info h1{
+        font-size: 2em;
+    }
+
+    .contact-info .message .bi-envelope-fill{
+        font-size: 4em;
+    }
+
+    .contact-info .info-two p{
+        font-size: .84em;
+    }
+
+
+
+
+
+    .modal-info{
+        max-height: 600px;
+        width: 88%;
+        height: 85%;
+    }
+
+    .modal-info h1{
+        font-size: 1.3em;
+    }
+
+
+    .my-info .info-img{
+        max-width: 180px;
+        width: 30%;
+        height: 70%;
+    }
+
+    .my-info .info-text h1{
+        font-size: 1.7em;
+    }
+
+    .my-info .info-text-p{
+        font-size: .75em;
+    }
+
+    .info-extra{
+        padding: 5px 5px;
+    }
+
+    .info-extra .info-one{
+        padding: 3px 6px;
+    }
+
+    .info-extra .info-two{
+        font-size: .7em;
+    }
+
+    .contact-info .message .bi-envelope-fill{
+        font-size: 6em;
+    }
+
+    .contact-info .info-two p{
+        font-size: .9em;
+    }
+
+
+
+    .modal-info.contact{
+        max-height: 300px;
+        min-height: 260px;
+        min-width: unset;
+        max-width: 515px;
+        width: 90%;        
+        height: 30%;
+        padding: 5px 5px;
+    } 
+
+    .modal-info.progress{
+        max-height: 500px;
+        height: 85%;
+    }
+
+    .modal-info.progress .info-two p{
+        font-size: .93em;
+    }
+
+    .modal-info.progress .message{
+        padding: 10px 10px;
+    }
+
+    .modal-info.progress .progress-img{
+        height: 20%;
+    }
+}
